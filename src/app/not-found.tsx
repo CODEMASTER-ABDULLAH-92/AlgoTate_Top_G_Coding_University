@@ -278,16 +278,6 @@ const NotFoundPage = () => {
                 </span>
               </Link>
 
-              <button
-                onClick={handleSearch}
-                className="group relative overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-4 sm:py-4 sm:px-6 rounded-xl hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative flex items-center justify-center gap-2 text-sm sm:text-base">
-                  <Search size={18} className="sm:size-5" />
-                  Search
-                </span>
-              </button>
 
               <button
                 onClick={handleRefresh}
@@ -303,7 +293,7 @@ const NotFoundPage = () => {
             </div>
 
             {/* Quick Links */}
-            <div>
+            {/* <div>
               <h4 className="text-gray-400 mb-3 text-sm sm:text-base font-medium">Popular Destinations</h4>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
                 {["Home", "Courses", "Blog", "Docs", "Contact"].map((link) => (
@@ -316,7 +306,7 @@ const NotFoundPage = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
