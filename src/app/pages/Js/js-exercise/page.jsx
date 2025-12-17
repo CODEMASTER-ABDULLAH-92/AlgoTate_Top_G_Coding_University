@@ -1,7 +1,7 @@
 "use client";
 import NavbarCode365 from "../../../Component/Nav";
 import Heading from "../../../Component/Heading";
-// import BackgroundGradient from "../../../Component/BackgroundGradient";
+
 import SEO from "../../../Component/SeoComp"
 
 const JsExercise = () => {
@@ -481,8 +481,7 @@ const JsExercise = () => {
       <SEO title="JS Execrise | Algo Tate"/>
       <NavbarCode365 />
 
-      {/* Background Gradient */}
-      <BackgroundGradient />
+
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-white max-w-6xl mx-auto px-6 py-16">
