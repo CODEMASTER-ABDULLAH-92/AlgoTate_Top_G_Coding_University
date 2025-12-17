@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Search, Youtube, Star, Clock, Users, ArrowRight, ArrowLeft } from "lucide-react";
 import SEO from "@/app/Component/SeoComp";
 import { useParams } from "next/navigation";
-import Footer from "@/app/Component/f"
+import Footer from "@/app/Component/Footer"
+
 const LanguageTutorialPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -347,85 +348,91 @@ const LanguageTutorialPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="w-full mx-auto px-6 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Tutorials Table */}
+          {/* Tutorials Table Container */}
           <div className="w-full">
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
-              {/* Table Header */}
-              <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-white/10 border-b border-white/10 text-sm font-semibold text-gray-300">
-                <div className="col-span-1 text-center">#</div>
-                <div className="col-span-6">Topic Name</div>
-                <div className="col-span-2 text-center">Explanation</div>
-                <div className="col-span-1 text-center">Actions</div>
-                <div className="col-span-2 text-center">Level</div>
-              </div>
+              {/* Table Container with Horizontal Scroll */}
+              <div className="overflow-x-auto">
+                {/* Fixed Width Table to ensure scroll */}
+                <div className="min-w-[800px]">
+                  {/* Table Header */}
+                  <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-white/10 border-b border-white/10 text-sm font-semibold text-gray-300 sticky left-0">
+                    <div className="col-span-1 text-center">#</div>
+                    <div className="col-span-6">Topic Name</div>
+                    <div className="col-span-2 text-center">Explanation</div>
+                    <div className="col-span-1 text-center">Actions</div>
+                    <div className="col-span-2 text-center">Level</div>
+                  </div>
 
-              {/* Table Rows */}
-              <div className="divide-y divide-white/10">
-                {filteredTutorials.map((tutorial, index) => (
-                  <div
-                    key={tutorial.id}
-                    className="grid grid-cols-12 gap-4 px-6 py-6 hover:bg-white/5 transition-all duration-200 group"
-                  >
-                    {/* Serial Number */}
-                    <div className="col-span-1 flex items-center justify-center">
-                      <span className="w-8 h-8 flex items-center justify-center bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">
-                        {index + 1}
-                      </span>
-                    </div>
+                  {/* Table Rows */}
+                  <div className="divide-y divide-white/10">
+                    {filteredTutorials.map((tutorial, index) => (
+                      <div
+                        key={tutorial.id}
+                        className="grid grid-cols-12 gap-4 px-6 py-6 hover:bg-white/5 transition-all duration-200 group"
+                      >
+                        {/* Serial Number */}
+                        <div className="col-span-1 flex items-center justify-center">
+                          <span className="w-8 h-8 flex items-center justify-center bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">
+                            {index + 1}
+                          </span>
+                        </div>
 
-                    {/* Topic Name and Description */}
-                    <div className="col-span-6">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors mb-2">
-                            {tutorial.title}
-                          </h3>
+                        {/* Topic Name and Description */}
+                        <div className="col-span-6">
+                          <div className="flex items-start gap-4">
+                            <div className="flex-1">
+                              <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors mb-2">
+                                {tutorial.title}
+                              </h3>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Explanation Link */}
+                        <div className="col-span-2 flex items-center justify-center">
+                          <Link 
+                            href={tutorial.exp_link} 
+                            target="_blank"
+                            className={`px-4 py-1 text-xs rounded-full font-semibold border ${getLevelColor(
+                              tutorial.level
+                            )} hover:opacity-80 transition-opacity`}
+                          >
+                            Link
+                          </Link>
+                        </div>
+
+                        {/* Actions - YouTube Icon */}
+                        <div className="col-span-1 flex items-center justify-center gap-2">
+                          <Link
+                            href={`https://www.youtube.com/watch?v=${tutorial.videoId}`}
+                            target="_blank"
+                            className="flex flex-col items-center gap-1 p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-xl text-red-400 hover:text-white transition-all duration-200 group/yt"
+                            title="Watch on YouTube"
+                          >
+                            <Youtube
+                              size={20}
+                              className="group-hover/yt:scale-110 transition-transform"
+                            />
+                          </Link>
+                        </div>
+                        
+                        {/* Level Badge */}
+                        <div className="col-span-2 flex items-center justify-center">
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-semibold border ${getLevelColor(
+                              tutorial.level
+                            )}`}
+                          >
+                            {tutorial.level}
+                          </span>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Explanation Link */}
-                    <div className="col-span-2 flex items-center justify-center">
-                      <Link 
-                        href={tutorial.exp_link} 
-                        target="_blank"
-                        className={`px-4 py-1 text-xs rounded-full font-semibold border ${getLevelColor(
-                          tutorial.level
-                        )}`}
-                      >
-                        Link
-                      </Link>
-                    </div>
-
-                    {/* Actions - YouTube Icon */}
-                    <div className="col-span-1 flex items-center justify-center gap-2">
-                      <Link
-                        href={`https://www.youtube.com/watch?v=${tutorial.videoId}`}
-                        target="_blank"
-                        className="flex flex-col items-center gap-1 p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-xl text-red-400 hover:text-white transition-all duration-200 group/yt"
-                        title="Watch on YouTube"
-                      >
-                        <Youtube
-                          size={20}
-                          className="group-hover/yt:scale-110 transition-transform"
-                        />
-                      </Link>
-                    </div>
-                    
-                    {/* Level Badge */}
-                    <div className="col-span-2 flex items-center justify-center">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold border ${getLevelColor(
-                          tutorial.level
-                        )}`}
-                      >
-                        {tutorial.level}
-                      </span>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
 
               {/* Empty State */}
@@ -450,21 +457,24 @@ const LanguageTutorialPage = () => {
         </div>
       </div>
       
-      {/* Add CSS for scrolling animation */}
+      {/* Add custom scrollbar styles */}
       <style jsx>{`
-        @keyframes scroll-up {
-          0% {
-            transform: translateY(0%);
-          }
-          100% {
-            transform: translateY(-100%);
-          }
+        .overflow-x-auto::-webkit-scrollbar {
+          height: 8px;
         }
-        .animate-scroll-up {
-          animation: scroll-up 130s linear infinite;
+        
+        .overflow-x-auto::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 4px;
         }
-        .animate-scroll-up:hover {
-          animation-play-state: paused;
+        
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+          background: rgba(59, 130, 246, 0.5);
+          border-radius: 4px;
+        }
+        
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+          background: rgba(59, 130, 246, 0.7);
         }
       `}</style>
       <Footer/>
@@ -473,82 +483,3 @@ const LanguageTutorialPage = () => {
 };
 
 export default LanguageTutorialPage;
-
-
-
-
-
-
-// <div className="lg:w-1/4">
-//           <div className="sticky top-8">
-//             <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-xl border border-purple-500/30 rounded-2xl p-6 mb-6">
-//               <h2 className="text-2xl font-bold text-white mb-2">Premium Courses</h2>
-//               <p className="text-gray-300 text-sm mb-4">
-//                 Level up your skills with our expert-led premium courses
-//               </p>
-
-//               {/* Animated Scrolling Cards Container */}
-//               <div className="relative h-96 overflow-hidden rounded-xl">
-//                 <div className="animate-scroll-up space-y-4">
-//                   {[...premiumCourses,...premiumCourses,...premiumCourses,...premiumCourses].map((course,index) => (
-//                     <div
-//                       key={index}
-//                       className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl p-4 hover:bg-white/15 transition-all duration-300 hover:scale-105 cursor-pointer group"
-//                     >
-//                       <div className="flex items-start gap-3 mb-3">
-//                         <div className="text-2xl">{course.image}</div>
-//                         <div className="flex-1">
-//                           <h3 className="font-semibold text-white group-hover:text-purple-300 transition-colors">
-//                             {course.title}
-//                           </h3>
-//                           <p className="text-gray-400 text-xs mt-1">
-//                             {course.description}
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
-//                         <div className="flex items-center gap-4">
-//                           <div className="flex items-center gap-1">
-//                             <Clock size={12} />
-//                             <span>{course.duration}</span>
-//                           </div>
-//                           <div className="flex items-center gap-1">
-//                             <Users size={12} />
-//                             <span>{course.students}</span>
-//                           </div>
-//                         </div>
-//                         <div className="flex items-center gap-1">
-//                           <Star size={12} className="text-yellow-400 fill-yellow-400" />
-//                           <span>{course.rating}</span>
-//                         </div>
-//                       </div>
-
-//                       <div className="flex items-center justify-between">
-//                         <div className="flex items-center gap-2">
-//                           <span className="text-lg font-bold text-green-400">
-//                             {course.price}
-//                           </span>
-//                           <span className="text-xs text-gray-400 line-through">
-//                             {course.originalPrice}
-//                           </span>
-//                         </div>
-//                         <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-3 py-1 rounded-lg text-xs font-semibold transition-all duration-300 group-hover:scale-110 flex items-center gap-1">
-//                           Enroll
-//                           <ArrowRight size={12} />
-//                         </button>
-//                       </div>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-
-//               <div className="mt-6 text-center">
-//                 <button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-//                   View All Premium Courses
-//                   <ArrowRight size={16} />
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>

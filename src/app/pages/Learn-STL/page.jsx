@@ -1,5 +1,7 @@
 "use client";
 import React, { useRef, useState } from 'react';
+import SEO from "../../Component/SeoComp"
+
 import { 
   Search, 
   ArrowUp, 
@@ -583,6 +585,7 @@ int main() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
       {/* Hero Section */}
+      <SEO title='C++ STL | Algo Tate'/>
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
         <div className="relative max-w-7xl mx-auto px-6 py-12">

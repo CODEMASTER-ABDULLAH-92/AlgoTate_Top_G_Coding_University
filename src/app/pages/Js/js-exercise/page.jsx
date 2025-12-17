@@ -2,6 +2,7 @@
 import NavbarCode365 from "../../../Component/Nav";
 import Heading from "../../../Component/Heading";
 import BackgroundGradient from "../../../Component/BackgroundGradient";
+import SEO from "../../../Component/SeoComp"
 
 const JsExercise = () => {
   // All exercises organized by category
@@ -477,6 +478,7 @@ const JsExercise = () => {
   return (
     <div className="relative min-h-screen bg-slate-950 overflow-hidden">
       {/* Navbar */}
+      <SEO title="JS Execrise | Algo Tate"/>
       <NavbarCode365 />
 
       {/* Background Gradient */}

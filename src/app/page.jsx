@@ -2,6 +2,7 @@ import Learn from "@/app/Component/Learn";
 import Navbar from "@/app/Component/Nav";
 import HeroSection from "./Component/Hero";
 import FooterBelow from "./Component/FooterBelow";
+import Team from "./Component/OurTeam"
 import Why from "./Component/FourParts"
 import TestimonialSection from "./Component/Testimonial";
 import SEO from "./Component/SeoComp";
@@ -17,6 +18,7 @@ export default function Home() {
       <Learn />
       <TestimonialSection/>
       <ReadyToTransformYourLife/>
+      <Team/>
       <FooterBelow />
     </div>
   );
