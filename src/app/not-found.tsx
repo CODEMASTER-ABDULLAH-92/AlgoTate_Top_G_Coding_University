@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Home, Search, Terminal, AlertCircle, RefreshCw, Sparkles } from "lucide-react";
+import { Home, Terminal, AlertCircle, RefreshCw, Sparkles } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useRouter } from "next/navigation";
@@ -85,12 +85,6 @@ const NotFoundPage = () => {
     setTimeout(() => setIsAnimating(false), 1000);
   };
 
-  const handleSearch = () => {
-    const searchQuery = prompt("What are you looking for?");
-    if (searchQuery) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
-    }
-  };
 
   return (
     <div 
