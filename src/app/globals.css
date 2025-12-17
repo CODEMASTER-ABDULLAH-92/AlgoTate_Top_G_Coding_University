@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../../public/fonts/MyFont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-font {
+  font-family: "MyCustomFont", sans-serif;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Horizontal marquee animations */
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-horizontal-reverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-horizontal 16s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee-horizontal-reverse 16s linear infinite;
+}
+
+/* Book marquee animations */
+@keyframes marquee-book {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-book-reverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee_book {
+  animation: marquee-book 20s linear infinite;
+}
+
+.animate-marquee2_book {
+  animation: marquee-book-reverse 20s linear infinite;
+}
+
+/* Testimonial marquee animations */
+@keyframes marquee-testimonial {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-testimonial-reverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee_test {
+  animation: marquee-testimonial 16s linear infinite;
+}
+
+.animate-marquee2_test {
+  animation: marquee-testimonial-reverse 16s linear infinite;
+}
+
+/* 🌟 Global text selection style */
+::selection {
+  background: #fff; 
+  color: #121212; 
+}
+
+
+/* --background	224 71% 4% */
+/* --foreground	213 31% 91% */
+/* --border	216 34% 17% */

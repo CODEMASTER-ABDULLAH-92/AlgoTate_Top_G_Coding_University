@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Component/Andrew.jsx", "src/app/cheatsheets/page.jsx", "src/app/yt_tutorials/[langauge]/page.jsx", "src/app/pages/courses/page.jsx", "src/app/Component/ProblemSolutionPage.jsx", "src/app/Component/Hero.jsx", "src/app/Component/Testimonial.jsx", "src/app/course_details/mern/page.jsx", "src/app/pages/auth/login/page.jsx", "src/app/pages/auth/otp/page.jsx", "src/app/pages/auth/otp_verification/page.jsx", "src/app/pages/auth/signUp/page.jsx", "src/app/pages/auth/contact/page.jsx", "src/app/page.jsx"],
+  "exclude": ["node_modules"]
+}
