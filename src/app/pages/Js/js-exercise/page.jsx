@@ -1,7 +1,7 @@
 "use client";
 import NavbarCode365 from "../../../Component/Nav";
 import Heading from "../../../Component/Heading";
-import BackgroundGradient from "../../../Component/BackgroundGradient";
+// import BackgroundGradient from "../../../Component/BackgroundGradient";
 import SEO from "../../../Component/SeoComp"
 
 const JsExercise = () => {

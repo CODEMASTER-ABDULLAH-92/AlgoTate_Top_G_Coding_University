@@ -13,7 +13,7 @@ import {
   Hash,
   Infinity as InfinityIcon,
   Percent,
-  SquareRoot,
+  SquareRadical,
   Power,
   Copy,
   Check,
@@ -27,7 +27,8 @@ import {
   TrendingDown,
   ArrowUpRight,
   ArrowDownRight,
-  Target
+  Target,
+  SquareRadical
 } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -481,7 +482,7 @@ console.log(tempDifference(20, -5)); // 25`,
               <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Math Methods
               </h1>
-              <SquareRoot size={48} className="text-yellow-400 animate-pulse" />
+              <SquareRadical size={48} className="text-yellow-400 animate-pulse" />
             </div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               Master JavaScript's Math object with practical examples, performance tips, and real-world applications.
